@@ -1,6 +1,7 @@
+
 [
   {
-    "tarin_id": "fgha",
+    "train_id": "Train-1",
     "train_no":"123567",
     "seats": [
       [0,0,0,0,0,0],
@@ -16,7 +17,7 @@
     }
   },
   {
-    "tarin_id": "astr",
+    "train_id": "Train-2",
     "train_no":"123567",
     "seats": [
       [0,0,0,0,0,0],
