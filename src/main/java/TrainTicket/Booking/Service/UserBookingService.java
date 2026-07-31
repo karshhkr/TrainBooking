@@ -39,11 +39,25 @@ public class UserBookingService {
 
     }
 public Boolean loginUser(){
-    Optional <User> foundUser=userList.stream().filter(user1 -> { //global User list  mein jo login kr raha hai user find kro
+    //optional if not find the user null pointException na aaye
+        Optional <User> foundUser=userList.stream().filter(user1 -> { //global User list  mein jo login kr raha hai user find kro
         return user1.getName().equals(user.getName())&& UserServiceUtil.checkPassword(user.getPassword(), user1.getHashedPassword()); //user ne jo naam diya hai wo filter hua same hai
-    })
+    }).findFirst();// list mein jo phele user hai wo de dega
 
-            return
+            return foundUser.isPresent();
+}
+public boolean signUp(User user1) {
+        try {
+            userList.add(user1);///userList mein user1 add kiya
+            saveUserListToFile(); //user ko aad toh kr rhe hai but use localdb user.json mein save krna hoga
+            return Boolean.TRUE;
+        } catch (IOException ex) {
+            return Boolean.FALSE;
+        }
 }
 
+    private void saveUserListToFile() throws IOException {
+        File usersFile = new File(USERS_PATH); //USERS_PATH mein jo file ka address diya hai, us address ko use karke File object banao aur usko usersFile naam ke variable mein store karo.
+        objectMapper.writeValue(usersFile,userList);// Serialization ho rha hai  json --->Object(user)
+    }
 }
