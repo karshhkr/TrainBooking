@@ -30,14 +30,23 @@ public User(){}
     public String getHashedPassword() {
         return hashedPassword;
     }
+    public List<Ticket> getTicketBooked() {
+       return ticketBooked;
+    }
+    public void printTickets() {
+        for (int i=0;i<ticketBooked.size();i++) {
+            System.out.println(ticketBooked.get(i).getTicketInfo());
+        }
+    }
+    public String getUserId() {
+        return this.userId;
+    }
+
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
@@ -47,20 +56,12 @@ public User(){}
         this.ticketBooked = ticketBooked;
     }
 
-    public String getUserId() {
-        return userId;
-    }
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public List<Ticket> getTicketBooked() {
-    for (int i =0;i<ticketBooked.size();i++){
-        System.out.println(ticketBooked.get(i).getTicketInfo());
-    }
 
     }
+
 }
 
 

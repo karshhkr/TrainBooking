@@ -58,6 +58,15 @@ public boolean signUp(User user1) {
 
     private void saveUserListToFile() throws IOException {
         File usersFile = new File(USERS_PATH); //USERS_PATH mein jo file ka address diya hai, us address ko use karke File object banao aur usko usersFile naam ke variable mein store karo.
-        objectMapper.writeValue(usersFile,userList);// Serialization ho rha hai  json --->Object(user)
+        objectMapper.writeValue(usersFile, userList);// Serialization ho rha hai  json --->Object(user)
     }
+
+public void fetchBooking(){
+    user.printTickets();
+
+    }
+public Boolean cancelBooking(String ticketID){
+        return Boolean.FALSE;
+}
+
 }
